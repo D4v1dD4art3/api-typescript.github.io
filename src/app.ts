@@ -6,6 +6,7 @@ import passportMiddleware from './middlewares/passport';
 
 import AuthRoutes from './routes/auth.routes';
 import projectRoutes from './routes/project.routes';
+import { middleware } from './middlewares/errors';
 // initialization
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(passport.initialize());
 passport.use(passportMiddleware);
+app.use(middleware);
 
 // routes
 app.get('/', (req, res) => {

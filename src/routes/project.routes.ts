@@ -11,8 +11,20 @@ const router = Router();
 
 router.get('/', getProjects);
 router.get('/:id', getProject);
-router.post('/', createProject);
-router.put('/:id', updateProject);
-router.delete('/:id', deleteProject);
+router.post(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  createProject
+);
+router.put(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  updateProject
+);
+router.delete(
+  '/:id',
+  passport.authenticate('jwt', { session: false }),
+  deleteProject
+);
 
 export default router;
