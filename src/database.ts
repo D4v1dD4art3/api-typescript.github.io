@@ -2,6 +2,7 @@ import mongoose, { ConnectOptions } from 'mongoose';
 import config from './config/config';
 
 const dbOptions: ConnectOptions = {
+  useFindAndModify: false,
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,

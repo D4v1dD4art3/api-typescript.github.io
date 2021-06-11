@@ -5,7 +5,7 @@ import cors from 'cors';
 import passportMiddleware from './middlewares/passport';
 
 import AuthRoutes from './routes/auth.routes';
-import specialRoutes from './routes/special.routes';
+import projectRoutes from './routes/project.routes';
 // initialization
 const app = express();
 
@@ -26,6 +26,6 @@ app.get('/', (req, res) => {
 });
 
 app.use(AuthRoutes);
-app.use(specialRoutes);
+app.use('/api/projects', projectRoutes);
 
 export default app;
